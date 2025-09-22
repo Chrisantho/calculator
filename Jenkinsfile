@@ -25,14 +25,14 @@ pipeline {
         stage("Code Coverage") {
               steps {
                   bat "./gradlew jacocoTestReport"
-                  publishHTML(target: [
-                                      allowMissing: false,
-                                      alwaysLinkToLastBuild: false,
-                                      keepAll: true,
-                                      reportDir: 'build/reports/jacoco/test/html',
-                                      reportFiles: 'index.html',
-                                      reportName: 'JaCoCo Report'
-                                  ])
+//                   publishHTML(target: [
+//                                       allowMissing: false,
+//                                       alwaysLinkToLastBuild: false,
+//                                       keepAll: true,
+//                                       reportDir: 'build/reports/jacoco/test/html',
+//                                       reportFiles: 'index.html',
+//                                       reportName: 'JaCoCo Report'
+//                                   ])
                   bat "./gradlew jacocoTestCoverageVerification"
               }
         }
