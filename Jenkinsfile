@@ -72,12 +72,12 @@ pipeline {
 
 
     }
-    post {
-            always {
-                mail to: 'ezeikechristopher@gmail.com',
-                    subject: "Completed Pipeline for: ${currentBuild.fullDisplayName}",
-                    body: "Your build completed, please check: ${env.BUILD_URL}"
-                slackSend channel: '#test', color: 'green', message: "The pipeline ${currentBuild.fullDisplayName} result."
-            }
-        }
+//     post {
+//             always {
+//                 mail to: 'ezeikechristopher@gmail.com',
+//                     subject: "Completed Pipeline for: ${currentBuild.fullDisplayName}",
+//                     body: "Your build completed, please check: ${env.BUILD_URL}"
+//                 slackSend channel: '#test', color: 'green', message: "The pipeline ${currentBuild.fullDisplayName} result."
+//             }
+//         }
 }
