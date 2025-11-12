@@ -76,7 +76,7 @@ pipeline {
         }
         stage('Calculator deployment') {
                          steps {
-                             bat "wsl -d Ubuntu ansible-playbook -i ansible/hosts calculator-docker.yml"
+                             bat "wsl -d Ubuntu ansible-playbook -i /home/christopher/ansible/hosts /home/christopher/calculator-docker.yml"
                          }
                 }
     }
