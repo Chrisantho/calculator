@@ -69,16 +69,21 @@ pipeline {
                      bat "docker push chtwirls/calculator"
                  }
         }
-        stage('Ansible deployment') {
+        stage('Docker install') {
+                 steps {
+                     bat "wsl -d Ubuntu ansible-playbook -i /home/christopher/ansible/hosts /home/christopher/ansible/install_docker.yml --private-key /home/christopher/Christopher2025.pem"
+                 }
+        }
+        stage('Calculator deployment') {
                          steps {
-                             bat "wsl -d Ubuntu ansible-playbook -i ansible/hosts calculator.yaml"
+                             bat "wsl -d Ubuntu ansible-playbook -i ansible/hosts calculator-docker.yml"
                          }
                 }
     }
 //     post {
 //             always {
 //                 mail to: 'ezeikechristopher@gmail.com',
-//                     subject: "Completed Pipeline for: ${currentBuild.fullDisplayName}",
+//                     subject: "Compl9eted Pipeline for: ${currentBuild.fullDisplayName}",
 //                     body: "Your build completed, please check: ${env.BUILD_URL}"
 //                 slackSend channel: '#test', color: 'green', message: "The pipeline ${currentBuild.fullDisplayName} result."
 //             }
